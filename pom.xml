@@ -15,10 +15,17 @@
 
 	<repositories>
 		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
 		</repository>
 	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
@@ -37,8 +44,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.pacots</groupId>
-			<artifactId>detector-test-smells-maven-plugin</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>tsDetect-plugin</artifactId>
+			<version>v0.3</version>
 		</dependency>
 
 	</dependencies>
@@ -56,8 +63,8 @@
 			</plugin>
 			<plugin>
                 <groupId>com.github.pacots</groupId>
-                <artifactId>detector-test-smells-maven-plugin</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <artifactId>tsDetect-plugin</artifactId>
+                <version>v0.3</version>
                 <executions>
                     <execution>
                     <phase>test</phase>
@@ -66,6 +73,15 @@
                         </goals>
                     </execution>
                 </executions>
+				<configuration>
+					<sourcePaths>
+						<sourcePath>./src/main/java/es/upm/grise/prof/curso2023/ejercicio3/SUT.java</sourcePath>
+					</sourcePaths>
+					<testSourcePaths>
+						<testSourcePath>./src/test/java/es/upm/grise/prof/curso2023/ejercicio3/SUTTest.java</testSourcePath>
+					</testSourcePaths>
+					<projectTitle>ejercicio3</projectTitle>
+				</configuration>
             </plugin>
 			<!-- https://dzone.com/articles/why-your-junit-5-tests-are-not-running-under-maven -->
 			<plugin>
